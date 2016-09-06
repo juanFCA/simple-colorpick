@@ -4,6 +4,11 @@
 		<title>Trabalho de ColorPick</title>
 		<meta charset="utf-8" />
 		<style type="text/css">
+		#colorRGB {
+			width: 100px;
+			height: 100px;
+			background-color: (0,0,0);
+		}
 
 		</style>
 	</head>
@@ -16,6 +21,18 @@
 			<input type="submit" />
 			<div id="colorRGB"></div>
 		</form>
-		<script></script>
+		<script>
+		document.addEventListener("submit", mostraRGB);
+		function mostraRGB (e) {
+			e.preventDefault();
+			var eR = document.rgb.r.value;
+			var eG = document.rgb.g.value;
+			var eB = document.rgb.b.value;
+
+			var mostra = document.getElementById('colorRGB');
+			mostra.style.background-color.rgb(eR,eG,eB);
+
+		}
+		</script>
 	</body>
 </html>
