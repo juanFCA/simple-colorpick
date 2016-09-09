@@ -1,5 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head></head>
-	<body></body>
+	<head>
+		<title>Trabalho de ColorPick</title>
+		<meta charset="utf-8" />
+		<style type="text/css">
+			body{
+				width: 600px;
+				font-family: Verdana, sans-serif;
+			}
+		#colorRGB {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			background-color: (0,0,0);
+		}
+		</style>
+	</head>
+	<body>
+		<h1>Trabalho de Hipermídia</h1>
+		<form name="rgb">
+			R: <input type="number" name="r" />
+			G: <input type="number" name="g" />
+			B: <input type="number" name="b" />
+			<input type="submit" />
+			<div id="colorRGB"></div>
+		</form>
+		<script>
+		document.addEventListener("submit", mostraRGB);
+		function mostraRGB (e) {
+			e.preventDefault();
+			var eR = document.rgb.r.value;
+			var eG = document.rgb.g.value;
+			var eB = document.rgb.b.value;
+			var mostra = document.getElementById('colorRGB');
+			document.getElementById('colorRGB').style.backgroundColor = 'rgb(' + eR + ',' + eG + ',' + eB + ')';
+		}
+		</script>
+	</body>
 </html>
