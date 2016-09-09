@@ -32,9 +32,9 @@
 			var eG = document.rgb.g.value;
 			var eB = document.rgb.b.value;
 
-			var mostra = document.getElementById('colorRGB');
-			mostra.style.background-color.rgb(eR,eG,eB);
-
+			document.getElementById('colorRGB').style.backgroundColor =
+			'rgb('+ eR +','+ eG +','+ eB +')';
+			document.rgb.reset();
 		}
 		</script>
 	</body>
