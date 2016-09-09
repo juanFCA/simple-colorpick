@@ -11,20 +11,35 @@
 		#colorRGB {
 			width: 100px;
 			height: 100px;
+			border: 1px solid black;
 			background-color: (0,0,0);
+		}
+		#colorHSL {
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			background-color: (0,0%,0%);
 		}
 		</style>
 	</head>
 	<body>
 		<h1>Trabalho de Hipermídia</h1>
 		<form name="rgb">
-			<input type="number" name="r" />
-			<input type="number" name="g" />
-			<input type="number" name="b" />
+			R: <input type="number" name="r" />
+			G: <input type="number" name="g" />
+			B: <input type="number" name="b" />
 			<input type="submit" />
 			<div id="colorRGB"></div>
 		</form>
+		<form name="hsl">
+			H: <input type="number" name="h" />
+			S: <input type="number" name="s" />
+			L: <input type="number" name="l" />
+			<input type="submit" />
+			<div id="colorHSL"></div>
+		</form>
 		<script>
+
 		document.addEventListener("submit", mostraRGB);
 		function mostraRGB (e) {
 			e.preventDefault();
@@ -35,6 +50,18 @@
 			document.getElementById('colorRGB').style.backgroundColor =
 			'rgb('+ eR +','+ eG +','+ eB +')';
 			document.rgb.reset();
+		}
+
+		document.addEventListener("submit", mostraHSL);
+		function mostraHSL (e) {
+			e.preventDefault();
+			var eH = document.hsl.h.value;
+			var eS = document.hsl.s.value;
+			var eL = document.hsl.l.value;
+
+			document.getElementById('colorHSL').style.backgroundColor =
+			'hsl('+ eH +','+ eS +'%,'+ eL +'%)';
+			document.hsl.reset();
 		}
 		</script>
 	</body>
