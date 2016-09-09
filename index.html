@@ -8,35 +8,45 @@
 				width: 600px;
 				font-family: Verdana, sans-serif;
 			}
-		#colorRGB {
-			width: 100px;
-			height: 100px;
-			border: 1px solid black;
-			background-color: (0,0,0);
-		}
-		#colorHSL {
-			width: 100px;
-			height: 100px;
-			border: 1px solid black;
-			background-color: (0,0%,0%);
-		}
+			input{
+				width: 90px;
+			}
+			#colorRGB {
+				width: 100px;
+				height: 40px;
+				border: 1px solid black;
+				float: right;
+			}
+			#colorHSL {
+				width: 100px;
+				height: 40px;
+				border: 1px solid black;
+				float: right;
+			}
 		</style>
 	</head>
 	<body>
 		<h1>Trabalho de Hipermídia</h1>
+		<h2>Selecionar cor RGB</h2>
+		<div id="colorRGB"></div>
 		<form name="rgb">
-			R: <input type="number" name="r" />
-			G: <input type="number" name="g" />
-			B: <input type="number" name="b" />
-			<input type="submit" />
-			<div id="colorRGB"></div>
+			<fieldset>
+				R: <input type="number" name="r" min="0" max="255" value="0"/>
+				G: <input type="number" name="g" min="0" max="255" value="0"/>
+				B: <input type="number" name="b" min="0" max="255" value="0"/>
+				<input type="submit" />
+			</fieldset>
+			
 		</form>
+		<h2>Selecionar cor HSL</h2>
+		<div id="colorHSL"></div>
 		<form name="hsl">
-			H: <input type="number" name="h" />
-			S: <input type="number" name="s" />
-			L: <input type="number" name="l" />
-			<input type="submit" />
-			<div id="colorHSL"></div>
+			<fieldset>
+				H: <input type="number" name="h" min="0" max="360" value="0"/>
+				S: <input type="number" name="s" min="0" max="100" value="60"/>
+				L: <input type="number" name="l" min="0" max="100" value="60"/>
+				<input type="submit" />
+			</fieldset>
 		</form>
 		<script>
 
@@ -49,7 +59,6 @@
 
 			document.getElementById('colorRGB').style.backgroundColor =
 			'rgb('+ eR +','+ eG +','+ eB +')';
-			document.rgb.reset();
 		}
 
 		document.addEventListener("submit", mostraHSL);
@@ -61,7 +70,6 @@
 
 			document.getElementById('colorHSL').style.backgroundColor =
 			'hsl('+ eH +','+ eS +'%,'+ eL +'%)';
-			document.hsl.reset();
 		}
 		</script>
 	</body>
